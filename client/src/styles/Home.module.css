@@ -1,9 +1,15 @@
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/#basics-and-terminology */
 .divNavbar {
   text-align: center;
   display: flex;
   background-color: green;
   flex: 0 0 100%; /* Let it fill the entire space horizontally */
   height: 50px;
+}
+.divSidebar {
+  order: 0;
+  background-color: yellow;
+  width: 100px;
 }
 
 .divMain {
@@ -13,13 +19,16 @@
   height: 350px;
 }
 
-.divSidebar {
-  order: 0;
-  background-color: yellow;
-  width: 100px;
+.divMainChild {
+  width: 250px; /* Or whatever */
+  height: 170px; /* Or whatever */
+  margin: auto; /* Magic! */
+  background-color: red;
+  margin: 0 10px 10px 0;
 }
 
-.featureView {
-  order: 1;
-  background-color: brown;
+.flexContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
