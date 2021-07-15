@@ -1,25 +1,23 @@
-# New Project
+# Redux Toolkit TypeScript Example
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
 
-## Available Scripts
+The **Redux Toolkit** is a standardized way to write Redux logic (create actions and reducers, setup the store with some default middlewares like redux devtools extension). This example demonstrates each of these features with Next.js
 
-### npm start
+## Deploy your own
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux-toolkit-typescript&project-name=with-redux-toolkit&repository-name=with-redux-toolkit)
 
-### npm run build
+## How to use
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.mjs` config file.
+```bash
+npx create-next-app --example with-redux-toolkit-typescript with-redux-toolkit-app
+# or
+yarn create next-app --example with-redux-toolkit-typescript with-redux-toolkit-app
+```
 
-### npm test
-
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
