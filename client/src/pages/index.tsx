@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
     },
     indexMain: {
-      backgroundColor: "#808000",
       height: 450,
       width: "100%",
       display: "flex",
@@ -23,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 100,
     },
     indexFeature: {
-      backgroundColor: "#00FFFF",
       height: "100%",
       width: "100%",
     },
@@ -40,7 +38,9 @@ const IndexPage: NextPage = () => {
       <div className={classes.indexNavBar}></div>
       <div className={classes.indexMain}>
         <div className={classes.indexSidebar}></div>
-        <div className={classes.indexFeature}></div>
+        <div className={classes.indexFeature}>
+          <GeoDataView />
+        </div>
       </div>
     </div>
   );

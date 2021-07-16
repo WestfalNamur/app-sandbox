@@ -1,13 +1,14 @@
 import React from "react";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 import SurfPointTable from "../tables/SurfPointTable";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    divGeoDataView: {
+    geoDataViewRoot: {
       width: "100%",
       height: "100%",
+      flexGrow: 1,
     },
   })
 );
@@ -15,10 +16,13 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function GeoDataView() {
   const classes = useStyles();
   return (
-    <div className={classes.divGeoDataView}>
-      <Paper>
+    <Grid container className={classes.geoDataViewRoot}>
+      <Grid container item xs={6} spacing={0}>
         <SurfPointTable />
-      </Paper>
-    </div>
+      </Grid>
+      <Grid container item xs={6} spacing={0}>
+        <SurfPointTable />
+      </Grid>
+    </Grid>
   );
 }
