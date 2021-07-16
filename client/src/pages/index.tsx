@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 
 import styles from "../styles/Home.module.css";
 
+import SurfPointTable from "../features/tables/SurfPointTable";
+
 const IndexPage: NextPage = () => {
   return (
     <>
@@ -12,12 +14,14 @@ const IndexPage: NextPage = () => {
           <div className={styles.flexContainer}>
             <div className={styles.divMainChild}></div>
             <div className={styles.divMainChild}></div>
-            <div className={styles.divMainChild}></div>
           </div>
           <div className={styles.flexContainer}>
-            <div className={styles.divMainChild}></div>
-            <div className={styles.divMainChild}></div>
-            <div className={styles.divMainChild}></div>
+            <div className={styles.divMainChild}>
+              <SurfPointTable />
+            </div>
+            <div className={styles.divMainChild}>
+              <SurfPointTable />
+            </div>
           </div>
         </div>
       </div>
