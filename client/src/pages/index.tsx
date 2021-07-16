@@ -1,31 +1,48 @@
 import type { NextPage } from "next";
+import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 
-import styles from "../styles/Home.module.css";
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    indexRoot: {
+      flexGrow: 1,
+    },
+    indexNavBar: {
+      backgroundColor: "#008000",
+      height: 50,
+      width: "100%",
+    },
+    indexMain: {
+      backgroundColor: "#808000",
+      height: 450,
+      width: "100%",
+      display: "flex",
+    },
+    indexSidebar: {
+      backgroundColor: "#FFFF00",
+      height: "100%",
+      width: 100,
+    },
+    indexFeature: {
+      backgroundColor: "#00FFFF",
+      height: "100%",
+      width: "100%",
+    },
+  })
+);
 
-import SurfPointTable from "../features/tables/SurfPointTable";
+import GeoDataView from "../features/dataView/GeoDataView";
 
 const IndexPage: NextPage = () => {
+  const classes = useStyles();
+
   return (
-    <>
-      <div className={styles.divNavbar}></div>
-      <div className={styles.divMain}>
-        <div className={styles.divSidebar}></div>
-        <div className={styles.featureView}>
-          <div className={styles.flexContainer}>
-            <div className={styles.divMainChild}></div>
-            <div className={styles.divMainChild}></div>
-          </div>
-          <div className={styles.flexContainer}>
-            <div className={styles.divMainChild}>
-              <SurfPointTable />
-            </div>
-            <div className={styles.divMainChild}>
-              <SurfPointTable />
-            </div>
-          </div>
-        </div>
+    <div className={classes.indexRoot}>
+      <div className={classes.indexNavBar}></div>
+      <div className={classes.indexMain}>
+        <div className={classes.indexSidebar}></div>
+        <div className={classes.indexFeature}></div>
       </div>
-    </>
+    </div>
   );
 };
 
