@@ -11,24 +11,29 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const columns = [
-  { field: "id", headerName: "ID", width: 100 },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 100,
+    editable: false,
+  },
   {
     field: "X",
     headerName: "X",
-    width: 100,
+    flex: 1,
     editable: true,
   },
   {
     field: "Y",
     headerName: "Y",
-    width: 100,
+    flex: 1,
     editable: true,
   },
   {
     field: "Z",
     headerName: "Z",
     type: "number",
-    width: 100,
+    flex: 1,
     editable: true,
   },
 ];
@@ -52,9 +57,10 @@ export default function SurfPointTable() {
       className={classes.dataGrid}
       rows={rows}
       columns={columns}
-      pageSize={5}
+      pageSize={25}
       checkboxSelection
       disableSelectionOnClick
+      disableColumnResize={true}
     />
   );
 }
