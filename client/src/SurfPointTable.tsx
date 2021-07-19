@@ -14,18 +14,21 @@ const columns = [
   {
     field: "id",
     headerName: "ID",
+    type: "number",
     width: 100,
     editable: false,
   },
   {
     field: "X",
     headerName: "X",
+    type: "number",
     flex: 1,
     editable: true,
   },
   {
     field: "Y",
     headerName: "Y",
+    type: "number",
     flex: 1,
     editable: true,
   },
