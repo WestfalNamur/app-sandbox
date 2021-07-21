@@ -1,5 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import GeoDataView from "./GeoDataView";
+import ShowPoints from "./ShowPoints";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -40,6 +41,7 @@ export default function App() {
           <GeoDataView />
         </div>
       </div>
+      <ShowPoints />
     </div>
   );
 }
