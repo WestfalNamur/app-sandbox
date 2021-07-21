@@ -44,7 +44,7 @@ async def ping() -> Dict[str, str]:
     return {"msg": "Ping!"}
 
 
-@app.get("/greetings")
+@app.get("/points")
 async def data() -> List[Point]:
     """Returns some random generated greetings"""
     return _generate_points()

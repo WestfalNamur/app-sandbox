@@ -25,6 +25,6 @@ def test_sanity_check() -> None:
 
 def test_greetings() -> None:
     """Check if greetings endpoint returns the correct data shape."""
-    res = client.get("/greetings")
+    res = client.get("/points")
     assert res.status_code == 200
     parse_obj_as(List[Point], res.json())
