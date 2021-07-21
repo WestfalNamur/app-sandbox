@@ -5,8 +5,7 @@ from fastapi.testclient import TestClient
 from pydantic import parse_obj_as
 
 from app.api._api import app
-from app.types._greetings import Greeting
-
+from app.types._data_generators import Point
 
 client = TestClient(app)
 
@@ -28,4 +27,4 @@ def test_greetings() -> None:
     """Check if greetings endpoint returns the correct data shape."""
     res = client.get("/greetings")
     assert res.status_code == 200
-    parse_obj_as(List[Greeting], res.json())
+    parse_obj_as(List[Point], res.json())

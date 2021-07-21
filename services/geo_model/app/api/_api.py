@@ -5,8 +5,8 @@ import uvicorn  # type: ignore
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.types._greetings import Greeting
-from app.core._data_generators import _generate_greetings
+from app.types._data_generators import Point
+from app.core._data_generators import _generate_points
 
 
 # logger
@@ -45,9 +45,9 @@ async def ping() -> Dict[str, str]:
 
 
 @app.get("/greetings")
-async def data() -> List[Greeting]:
+async def data() -> List[Point]:
     """Returns some random generated greetings"""
-    return _generate_greetings()
+    return _generate_points()
 
 
 # ==============================================================================
