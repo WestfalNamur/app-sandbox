@@ -24,7 +24,7 @@ python3 -m flake8 app/
 python3 -m black app/
 
 # run mypy  # exit if ther is something to imporve
-python3 -m mypy --strict app/
+python3 -m mypy app/
 if [ $? -eq 1 ]
 then
     echo "MyPy found something."
