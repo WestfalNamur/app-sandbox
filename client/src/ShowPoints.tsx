@@ -5,7 +5,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const baseUrl = "http://localhost:8000";
 
 export default function ShowPoints(): JSX.Element {
-  const url = baseUrl + "/greetings";
+  const url = baseUrl + "/points";
   const { data, error } = useSWR(url, fetcher, {
     refreshInterval: 1000,
   });
