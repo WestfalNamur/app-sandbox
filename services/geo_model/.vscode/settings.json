@@ -1,0 +1,5 @@
+{
+  "python.formatting.provider": "black",
+  "python.pythonPath": "env/bin/python",
+  "workbench.colorTheme": "Solarized Dark"
+}

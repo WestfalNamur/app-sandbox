@@ -1,2 +1,8 @@
-# Client
+# client
+build
 node_modules
+
+# python
+__pycache__/
+env/
+.mypy_cache
