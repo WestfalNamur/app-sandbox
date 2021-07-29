@@ -16,16 +16,16 @@ const DistUc = Union(
 );
 
 const SurfacePointRecord = Record({
-  idx: Number,
-  x_coord: Number,
-  y_coord: Number,
-  z_coord: Number,
-  x_coord_uc_dist: DistUc,
-  x_coord_uc: Number,
-  y_coord_uc_dist: DistUc,
-  y_coord_uc: Number,
-  z_coord_uc_dist: DistUc,
-  z_coord_uc: Number,
+  idx: String,
+  x: Number,
+  y: Number,
+  z: Number,
+  x_uc_dist: DistUc,
+  x_uc: Number,
+  y_uc_dist: DistUc,
+  y_uc: Number,
+  z_uc_dist: DistUc,
+  z_uc: Number,
   smooth: Number,
   formation: String,
 });

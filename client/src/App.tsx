@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import GempyData from "./pages/GempyData";
-import ShowSurfacePoints from "./features/ShowSurfacePoints";
+import ShowSurfacePoints from "./features/gempyData/ShowSurfacePoints";
 
 const useStyles = makeStyles(() =>
   createStyles({
