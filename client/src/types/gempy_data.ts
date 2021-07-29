@@ -25,15 +25,6 @@ export interface SurfacePoint {
   formation: string;
 }
 
-export interface GetSurfacePoints {
-  data: SurfacePoint[];
-  error: any;
-  mutate: (
-    data?: SurfacePoint[],
-    shouldRevalidate?: boolean | undefined
-  ) => Promise<any>;
-}
-
 const DistUc = Union(
   Literal("normal"),
   Literal("triangular"),

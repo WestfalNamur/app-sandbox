@@ -1,5 +1,5 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import GeoDataView from "./GeoDataView";
+import GeoDataView from "./features/getData/GeoDataView";
 import ShowPoints from "./ShowPoints";
 
 const useStyles = makeStyles(() =>
