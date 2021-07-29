@@ -32,3 +32,7 @@ const SurfacePointRecord = Record({
 
 export type SurfacePoint = Static<typeof SurfacePointRecord>;
 export const SurfacePointRunType = Union(Array(SurfacePointRecord), Undefined);
+
+export interface GempyDataState {
+  surfacePoints: SurfacePoint[];
+}

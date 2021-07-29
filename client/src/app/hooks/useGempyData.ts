@@ -1,27 +1,24 @@
 import { useQuery } from "react-query";
 import { SurfacePoint, SurfacePointRunType } from "../../types";
+import { typeGuard } from "./shared";
+import { setSurfacePoints } from "../../app/store/gempyDataReducer";
+import { useAppDispatch } from "../../app/hooks";
 
 const baseUrl = "http://localhost:8000";
 
 const fetchSurfacePoints = async () => {
-  const url = baseUrl + "/random-surface-points";
-  const res = await fetch(url);
+  const res = await fetch(baseUrl + "/random-surface-points");
   const data: Promise<SurfacePoint[]> = res.json();
   return data;
 };
 
-function typeGuard(runType: any, data: any) {
-  if (data) {
-    try {
-      runType.check(data);
-    } catch (err) {
-      console.log("Wrong type. Is: ", data, err);
-    }
-  }
-}
-
 export default function useSurfacePoints() {
+  // Query, TypeGuard, and Redux
+  const dispatch = useAppDispatch();
   const query = useQuery("surfacePoints", fetchSurfacePoints);
-  typeGuard(SurfacePointRunType, query.data);
+  const { data } = query;
+  if (typeGuard(SurfacePointRunType, data)) {
+    data && dispatch(setSurfacePoints(data));
+  }
   return query;
 }
