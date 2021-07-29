@@ -1,1 +1,1 @@
-export * from "./gempy_data";
+export * from "./gempy";

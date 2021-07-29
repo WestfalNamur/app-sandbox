@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import GeoDataView from "./features/getData/GeoDataView";
-import ShowPoints from "./ShowPoints";
+import GempyData from "./pages/GempyData";
+import ShowSurfacePoints from "./features/ShowSurfacePoints";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -38,10 +38,10 @@ export default function App() {
       <div className={classes.indexMain}>
         <div className={classes.indexSidebar}></div>
         <div className={classes.indexFeature}>
-          <GeoDataView />
+          <GempyData />
         </div>
       </div>
-      <ShowPoints />
+      <ShowSurfacePoints />
     </div>
   );
 }
