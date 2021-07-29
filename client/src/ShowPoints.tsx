@@ -1,15 +1,15 @@
 import useSWR from "swr";
-import { ResGetPoints } from "./types";
+import { ResGetSurfacePoints } from "./types";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const baseUrl = "http://localhost:8000";
 
 export default function ShowPoints(): JSX.Element {
-  const url = baseUrl + "/points";
+  const url = baseUrl + "/random-surface-points";
   const { data, error } = useSWR(url, fetcher, {
     refreshInterval: 1000,
   });
-  ResGetPoints.check(data);
+  ResGetSurfacePoints.check(data);
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
