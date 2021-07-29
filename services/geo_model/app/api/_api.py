@@ -6,7 +6,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.types._data_generators import Point
-from app.core._data_generators import _generate_points
+from app.types._gempy_data import SurfacePoint
+from app.core._data_generators import _generate_points, _generate_random_surface_points
 
 
 # logger
@@ -45,9 +46,15 @@ async def ping() -> Dict[str, str]:
 
 
 @app.get("/points")
-async def data() -> List[Point]:
+async def points_data() -> List[Point]:
     """Returns some random generated greetings"""
     return _generate_points()
+
+
+@app.get("/random-surface-points")
+async def random_surface_points_data() -> List[SurfacePoint]:
+    """Returns some generate randome surface points"""
+    return _generate_random_surface_points()
 
 
 # ==============================================================================

@@ -6,6 +6,7 @@ from pydantic import parse_obj_as
 
 from app.api._api import app
 from app.types._data_generators import Point
+from app.types._gempy_data import SurfacePoint
 
 client = TestClient(app)
 
@@ -28,3 +29,10 @@ def test_greetings() -> None:
     res = client.get("/points")
     assert res.status_code == 200
     parse_obj_as(List[Point], res.json())
+
+
+def test_generate_random_surface_points_api() -> None:
+    """Test Api to generate randome surface points"""
+    res = client.get("/random-surface-points")
+    assert res.status_code == 200
+    parse_obj_as(List[SurfacePoint], res.json())
