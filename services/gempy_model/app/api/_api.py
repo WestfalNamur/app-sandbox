@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.types._data_generators import Point
 from app.types._gempy_data import SurfacePoint
-import app.core._data_generators as data_generators
+import app.core.functions.pure._data_generators as data_generators
 
 
 # logger
