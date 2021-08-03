@@ -1,6 +1,8 @@
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import { DataGrid } from "@material-ui/data-grid";
 
+import useSurfacePoints from "../../app/hooks/useGempyData";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     dataGrid: {
@@ -41,20 +43,17 @@ const columns = [
   },
 ];
 
-const rows = [
-  { id: 1, X: 42, Y: 24, Z: 12 },
-  { id: 2, X: 42, Y: 24, Z: 12 },
-  { id: 3, X: 42, Y: 24, Z: 12 },
-  { id: 4, X: 42, Y: 24, Z: 12 },
-  { id: 5, X: 42, Y: 24, Z: 12 },
-  { id: 6, X: 42, Y: 24, Z: 12 },
-  { id: 7, X: 42, Y: 24, Z: 12 },
-  { id: 8, X: 42, Y: 24, Z: 12 },
-  { id: 9, X: 42, Y: 24, Z: 12 },
-];
-
 export default function SurfPointTable() {
   const classes = useStyles();
+  const { data, status } = useSurfacePoints();
+  if (status === "error") return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  const rows = data.map((p) => ({
+    id: p.idx,
+    X: p.x,
+    Y: p.y,
+    Z: p.z,
+  }));
   return (
     <DataGrid
       className={classes.dataGrid}
