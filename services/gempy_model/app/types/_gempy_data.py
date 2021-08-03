@@ -1,7 +1,6 @@
 from enum import Enum
 
 from pydantic import BaseModel
-import pandas as pd
 
 """ Main GemPy data classes
 
@@ -41,17 +40,14 @@ class GeoModelExtent(BaseModel):
 # Topology data
 # =============================================================================
 
-# Series
-# series_df = pd.DataFrame(columns=["name", "isfault", "order_series"])
+
 class Series(BaseModel):
     name: str
     isfault: bool
     order_series: int
 
 
-# Surfaces
-# surfaces_df = pd.DataFrame(columns=["name", "series", "order_surface"])
-class Surface(BaseModel):
+class Surfaces(BaseModel):
     name: str
     series: str
     order_surface: int
