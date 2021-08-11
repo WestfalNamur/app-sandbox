@@ -1,5 +1,5 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import NavBar from "./features/NavBar";
+import ClippedDrawer from "./features/ClippedDrawer";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -19,10 +19,7 @@ export default function App() {
 
   return (
     <div className={classes.indexRoot}>
-      <NavBar />
-      <div className={classes.indexMain}>
-        <h1>Content!</h1>
-      </div>
+      <ClippedDrawer />
     </div>
   );
 }
