@@ -13,6 +13,8 @@ import TocIcon from "@material-ui/icons/Toc";
 import PhotoIcon from "@material-ui/icons/Photo";
 import MapIcon from "@material-ui/icons/Map";
 
+import SurfPointTable from "./SurfacePointTable";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -93,6 +95,7 @@ export default function ClippedDrawer() {
       </Drawer>
       <main className={classes.content}>
         <Toolbar />
+        <SurfPointTable />
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
