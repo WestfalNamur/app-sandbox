@@ -1,3 +1,4 @@
+import { Immutable } from "./index";
 import {
   Number,
   String,
@@ -30,7 +31,9 @@ const SurfacePointRecord = Record({
   formation: String,
 });
 
-export type SurfacePoint = Static<typeof SurfacePointRecord>;
+// Create an immutable data type from runtype Record.
+export type SurfacePoint = Immutable<Static<typeof SurfacePointRecord>>;
+
 export const SurfacePointRunType = Union(Array(SurfacePointRecord), Undefined);
 
 export interface GempyDataState {
