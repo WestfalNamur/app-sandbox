@@ -1,26 +1,19 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { gempyModelApi } from "./services/surfacePoints";
 
-import gempyDataSlice from "./GempyDataSlice";
-
-export function makeStore() {
-  return configureStore({
-    reducer: {
-      gempyData: gempyDataSlice,
-    },
-  });
-}
-
-const store = makeStore();
-
-export type AppState = ReturnType<typeof store.getState>;
+export const store = configureStore({
+  reducer: {
+    [gempyModelApi.reducerPath]: gempyModelApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(gempyModelApi.middleware),
+});
 
 export type AppDispatch = typeof store.dispatch;
-
+export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
-  AppState,
+  RootState,
   unknown,
   Action<string>
 >;
-
-export default store;
