@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     dataGrid: {
       width: "100%",
-      height: "100%",
+      height: "650px",
     },
   })
 );
@@ -18,6 +18,13 @@ const columns = [
     type: "number",
     width: 100,
     editable: false,
+  },
+  {
+    field: "Formation",
+    headerName: "Formation",
+    type: "string",
+    flex: 1,
+    editable: true,
   },
   {
     field: "X",
@@ -52,13 +59,14 @@ export default function SurfPointTable() {
     X: p.x,
     Y: p.y,
     Z: p.z,
+    Formation: p.formation,
   }));
   return (
     <DataGrid
       className={classes.dataGrid}
       rows={rows}
       columns={columns}
-      pageSize={25}
+      pageSize={10}
       checkboxSelection
       disableSelectionOnClick
       disableColumnResize={true}

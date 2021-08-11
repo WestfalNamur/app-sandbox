@@ -1,5 +1,5 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import ClippedDrawer from "./features/ClippedDrawer";
+import Home from "./pages/Home";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <div className={classes.indexRoot}>
-      <ClippedDrawer />
+      <Home />
     </div>
   );
 }
