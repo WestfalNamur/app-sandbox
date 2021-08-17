@@ -15,6 +15,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.7",
+    "ajv": "^6.12.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.0",
@@ -26,8 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "genTypes": "json2ts ../services/gempy_model/app/types/exports/json_schemas/ src/types/gempy_model/"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
