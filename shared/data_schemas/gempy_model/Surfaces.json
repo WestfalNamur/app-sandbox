@@ -1,1 +1,0 @@
-{  "title": "Surfaces",  "type": "object",  "properties": {    "name": {      "title": "Name",      "type": "string"    },    "series": {      "title": "Series",      "type": "string"    },    "order_surface": {      "title": "Order Surface",      "type": "integer"    }  },  "required": [    "name",    "series",    "order_surface"  ]}

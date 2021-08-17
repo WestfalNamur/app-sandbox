@@ -2,8 +2,6 @@ from enum import Enum
 
 from pydantic import BaseModel
 
-from app.types import write_model_to_JSON_schema
-
 
 """ Main GemPy data classes
 
@@ -39,9 +37,6 @@ class GeoModelExtent(BaseModel):
     z_max: int
 
 
-write_model_to_JSON_schema(GeoModelExtent)
-
-
 # =============================================================================
 # Topology data
 # =============================================================================
@@ -57,10 +52,6 @@ class Surfaces(BaseModel):
     name: str
     series: str
     order_surface: int
-
-
-write_model_to_JSON_schema(Series)
-write_model_to_JSON_schema(Surfaces)
 
 
 # =============================================================================
@@ -96,7 +87,3 @@ class Orientation(BaseModel):
     z_uc: float
     smooth: float
     formation: str
-
-
-write_model_to_JSON_schema(SurfacePoint)
-write_model_to_JSON_schema(Orientation)
