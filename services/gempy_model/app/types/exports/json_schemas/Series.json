@@ -1,0 +1,1 @@
+{  "title": "Series",  "type": "object",  "properties": {    "name": {      "title": "Name",      "type": "string"    },    "isfault": {      "title": "Isfault",      "type": "boolean"    },    "order_series": {      "title": "Order Series",      "type": "integer"    }  },  "required": [    "name",    "isfault",    "order_series"  ]}

@@ -1,5 +1,6 @@
 {
   "python.formatting.provider": "black",
   "python.pythonPath": "env/bin/python",
-  "workbench.colorTheme": "Solarized Dark"
+  "workbench.colorTheme": "Solarized Dark",
+  "cSpell.words": ["pydantic"]
 }
