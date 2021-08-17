@@ -26,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "genTypes": "json2ts ../services/gempy_model/app/types/exports/json_schemas/ src/types/gempy_model/"
   },
   "eslintConfig": {
     "extends": "react-app"
