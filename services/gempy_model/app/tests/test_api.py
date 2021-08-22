@@ -4,8 +4,8 @@ from typing import List
 from fastapi.testclient import TestClient
 from pydantic import parse_obj_as
 
-from app.api._api import app
-from app.types._gempy_data import SurfacePoint
+from app.api import app
+from app.types import SurfacePoint
 
 client = TestClient(app)
 

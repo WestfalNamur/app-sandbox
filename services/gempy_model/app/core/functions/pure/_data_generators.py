@@ -1,9 +1,8 @@
 from typing import List
 from random import uniform
-from time import sleep
 import uuid
 
-from app.types._gempy_data import SurfacePoint, DistUcEnum
+from app.types import SurfacePoint, DistUcEnum
 
 
 def _generate_random_surface_points() -> List[SurfacePoint]:
