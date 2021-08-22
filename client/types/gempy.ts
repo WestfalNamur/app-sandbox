@@ -1,4 +1,3 @@
-import { Immutable } from "./index";
 export enum DistUcTs {
   "normal",
   "triangular",
@@ -21,7 +20,7 @@ export interface SurfacePointTs {
 }
 
 // Create an immutable data type from interfaces;
-export type SurfacePoint = Immutable<SurfacePointTs>;
+export type SurfacePoint = Readonly<SurfacePointTs>;
 
 export interface GempyDataState {
   surfacePoints: SurfacePoint[];

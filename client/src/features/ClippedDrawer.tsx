@@ -14,7 +14,8 @@ import PhotoIcon from "@material-ui/icons/Photo";
 import MapIcon from "@material-ui/icons/Map";
 
 // MainView embedded in Clipped Drawer
-import Content from "./Content";
+//import Content from "./Content";
+import SurfPointTable from "./dataView/SurfacePointsTable";
 
 const drawerWidth = 240;
 
@@ -96,7 +97,7 @@ export default function ClippedDrawer() {
       </Drawer>
       <main className={classes.content}>
         <Toolbar />
-        <Content />
+        <SurfPointTable />
       </main>
     </div>
   );
