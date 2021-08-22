@@ -5,7 +5,6 @@ import uvicorn  # type: ignore
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.types._data_generators import Point
 from app.types._gempy_data import SurfacePoint
 import app.core.functions.pure._data_generators as data_generators
 
@@ -43,12 +42,6 @@ app.add_middleware(
 async def ping() -> Dict[str, str]:
     """Connection check."""
     return {"msg": "Ping!"}
-
-
-@app.get("/points")
-async def points_data() -> List[Point]:
-    """Returns some random generated greetings"""
-    return data_generators._generate_points()
 
 
 @app.get("/random-surface-points")

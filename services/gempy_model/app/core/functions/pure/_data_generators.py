@@ -1,25 +1,9 @@
 from typing import List
-from random import randint, uniform
+from random import uniform
 from time import sleep
 import uuid
 
-from app.types._data_generators import Point
 from app.types._gempy_data import SurfacePoint, DistUcEnum
-
-
-def _generate_points() -> List[Point]:
-    """Generate some random comments."""
-    sleep(1)
-    points: List[Point] = [
-        Point(
-            ix=randint(0, 1000),
-            jy=randint(0, 1000),
-            kz=randint(0, 1000),
-            value="Something",
-        )
-        for i in range(10)
-    ]
-    return points
 
 
 def _generate_random_surface_points() -> List[SurfacePoint]:
