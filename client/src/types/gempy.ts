@@ -1,40 +1,27 @@
 import { Immutable } from "./index";
-import {
-  Number,
-  String,
-  Array,
-  Record,
-  Union,
-  Undefined,
-  Literal,
-  Static,
-} from "runtypes";
+export enum DistUcTs {
+  "normal",
+  "triangular",
+  "uniform",
+}
 
-const DistUc = Union(
-  Literal("normal"),
-  Literal("triangular"),
-  Literal("uniform")
-);
+export interface SurfacePointTs {
+  idx: string;
+  x: number;
+  y: number;
+  z: number;
+  x_uc_dist: DistUcTs;
+  x_uc: number;
+  y_uc_dist: DistUcTs;
+  y_uc: number;
+  z_uc_dist: DistUcTs;
+  z_uc: number;
+  smooth: number;
+  formation: string;
+}
 
-const SurfacePointRecord = Record({
-  idx: String,
-  x: Number,
-  y: Number,
-  z: Number,
-  x_uc_dist: DistUc,
-  x_uc: Number,
-  y_uc_dist: DistUc,
-  y_uc: Number,
-  z_uc_dist: DistUc,
-  z_uc: Number,
-  smooth: Number,
-  formation: String,
-});
-
-// Create an immutable data type from runtype Record.
-export type SurfacePoint = Immutable<Static<typeof SurfacePointRecord>>;
-
-export const SurfacePointRunType = Union(Array(SurfacePointRecord), Undefined);
+// Create an immutable data type from interfaces;
+export type SurfacePoint = Immutable<SurfacePointTs>;
 
 export interface GempyDataState {
   surfacePoints: SurfacePoint[];

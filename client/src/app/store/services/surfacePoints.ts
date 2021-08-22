@@ -16,27 +16,14 @@ export const gempyModelApi = createApi({
 // auto-generated based on the defined endpoints
 export const { useGetSurfacePointsQuery } = gempyModelApi;
 
-// export function useGetSurfacePoints() {
-//   const query = useGetSurfacePointsQuery();
-//   const { data } = query;
-//   try {
-//     SurfacePointRunType.check(data);
-//   } catch (e) {
-//     console.log(
-//       "Validation Error in http://localhost:8000/random-surface-points data"
-//     );
-//   }
-//   return query;
-// }
-
+// Decode data and typeguard
+// Cast response into an object of our defined type and then check if any of
+// the fields are empty or not.
 export function useGetSurfacePoints() {
   const query = useGetSurfacePointsQuery();
   const { data } = query;
-
-  // Decode data and typeguard
   if (data) {
     const sPs: SurfacePoint[] = data.map((p) => {
-      // Cast into decoded SurfacePoint
       const sp: SurfacePoint = {
         idx: p.idx,
         x: p.x,
@@ -51,9 +38,7 @@ export function useGetSurfacePoints() {
         formation: p.formation,
         smooth: p.smooth,
       };
-      // Check for undefined
-      const noNull = Object.values(sp).every((xi) => typeof xi !== "undefined");
-      if (!noNull) {
+      if (Object.values(sp).every((x) => typeof x !== "undefined")) {
         console.log("Some values are missing on SurfacePoint");
       }
       return sp;
