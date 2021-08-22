@@ -1,6 +1,6 @@
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import { DataGrid } from "@material-ui/data-grid";
-import { useGetSurfacePoints } from "../app/store/services/surfacePoints";
+import { useGetSurfacePoints } from "./gempyDataApi";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,7 +69,6 @@ export default function SurfPointTable() {
       pageSize={10}
       checkboxSelection
       disableSelectionOnClick
-      disableColumnResize={true}
     />
   );
 }

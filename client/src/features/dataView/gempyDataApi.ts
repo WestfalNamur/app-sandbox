@@ -38,7 +38,7 @@ export function useGetSurfacePoints() {
         formation: p.formation,
         smooth: p.smooth,
       };
-      if (Object.values(sp).every((x) => typeof x !== "undefined")) {
+      if (!Object.values(sp).every((x) => typeof x !== "undefined")) {
         console.log("Some values are missing on SurfacePoint");
       }
       return sp;
