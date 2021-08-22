@@ -5,8 +5,11 @@ Data instances of our live geo-model.
 * We use .schema()["properties"].keys() on our BaseModel classes to get their
 * field names as colum names in our DataFrames.
 """
+import sys
 
 import pandas as pd  # type: ignore
+
+from app.core.functions.pure._data_loader import from_csv_surface_points
 
 from app.types import (
     GeoModelExtent,
@@ -52,10 +55,15 @@ orientations = pd.DataFrame(columns=Orientation.schema()["properties"].keys())
 # =============================================================================
 
 
-modelState = ModelState(
+model_state = ModelState(
     geo_model_extent=geo_model_extent,
     series=series,
     surfaces=surfaces,
     surface_points=surface_points,
     orientations=orientations,
+)
+
+# TODO: Remove, only during early development!
+model_state["surface_points"] = from_csv_surface_points(
+    path=sys.path[0] + "/app/core/data/DUMMY_DATA/_surface_points_simple.csv"
 )

@@ -1,0 +1,13 @@
+X,Y,Z,formation,x_uc_dist,y_uc_dist,z_uc_dist,x_uc,y_uc,z_uc,smooth
+100,200,600,rock2,normal,normal,normal,0,0,0,0.01
+500,200,600,rock2,normal,normal,normal,0,0,0,0.01
+900,200,600,rock2,normal,normal,normal,0,0,0,0.01
+100,800,600,rock2,normal,normal,normal,0,0,0,0.01
+500,800,600,rock2,normal,normal,normal,0,0,0,0.01
+900,800,600,rock2,normal,normal,normal,0,0,0,0.01
+100,200,400,rock1,normal,normal,normal,0,0,0,0.01
+500,200,400,rock1,normal,normal,normal,0,0,0,0.01
+900,200,400,rock1,normal,normal,normal,0,0,0,0.01
+100,800,400,rock1,normal,normal,normal,0,0,0,0.01
+500,800,400,rock1,normal,normal,normal,0,0,0,0.01
+900,800,400,rock1,normal,normal,normal,0,0,0,0.01

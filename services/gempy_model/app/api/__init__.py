@@ -8,6 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.types import SurfacePoint
 import app.core.functions.pure._data_generators as data_generators
 
+from app.core.data import model_state
+
 
 # logger
 LOGGER = logging.getLogger("API")
@@ -33,6 +35,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+print(model_state)
 
 
 # ==============================================================================

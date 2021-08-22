@@ -1,19 +1,48 @@
-# import pandas as pd  # type: ignore
+import uuid
+import logging
 
-# import app.types._gempy_data as gp_types
+import pandas as pd  # type: ignore
 
+from app.types import SurfacePoint
 
-# def from_csv_surface_points(path: str) -> pd.DataFrame:
-#     """Creates a new surface-point DFrame, loads surface-point data from csv,
-#     inserts them into the DFrame and returns it.
-
-#     RunType check via Pydantic."""
-#     new_geo_model_surface_points = pd.DataFrame(
-#         columns=gp_types.SurfacePoint.schema()["properties"].keys()
-#     )
-#     csv_data = pd.read_csv(path=path)
-
-#     for index, row in csv_data.iterrows():
+LOGGER = logging.getLogger("DATA")
 
 
-#     print(new_geo_model_surface_points)
+def from_csv_surface_points(path: str) -> pd.DataFrame:
+    """Load surface-points from csc into a DFrame.
+
+    Args:
+        path: Path to surface points .csv file.
+
+    Return:
+        DFrame: New created and populated SurfacePointsDFrame
+
+    Raises:
+        ValidationError: When loaded surface point does not have the right shape.
+
+    """
+    # dframe = pd.DataFrame(columns=SurfacePoint.schema()["properties"].keys())
+    csv_data: pd.DataFrame = pd.read_csv(path)
+    lst = []
+    for _, row in csv_data.iterrows():
+        point: SurfacePoint = SurfacePoint(
+            idx=uuid.uuid4().hex,
+            x=row["X"],
+            y=row["Y"],
+            z=row["Z"],
+            x_uc_dist=row["x_uc_dist"],
+            x_uc=row["x_uc"],
+            y_uc_dist=row["y_uc_dist"],
+            y_uc=row["y_uc"],
+            z_uc_dist=row["z_uc_dist"],
+            z_uc=row["z_uc"],
+            smooth=row["smooth"],
+            formation=row["formation"],
+        )
+        lst.append(point.dict())
+
+    LOGGER.log(level=logging.WARN, msg="TODO: Add pandera")
+
+    dframe: pd.DataFrame = pd.DataFrame(data=lst)
+
+    return dframe
