@@ -4,6 +4,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import type { AppDispatch, RootState } from "./store";
 
+// Next.js example: https://github.com/vercel/next.js/
 export const useForm =
   <TContent>(defaultValues: TContent) =>
   (handler: (content: TContent) => void) =>

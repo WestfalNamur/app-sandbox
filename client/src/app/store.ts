@@ -1,14 +1,25 @@
+import { logger } from "redux-logger";
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+
 import { gempyModelApi } from "../features/dataView/gempyDataApi";
 
+// Combine reducer
+// Api slices do not store data in a classical sense but are cached queries.
+const reducer = {
+  [gempyModelApi.reducerPath]: gempyModelApi.reducer,
+};
+
+// Collect middleware
+const middlewares = [gempyModelApi.middleware, logger];
+
+// Configure store
 export const store = configureStore({
-  reducer: {
-    [gempyModelApi.reducerPath]: gempyModelApi.reducer,
-  },
+  reducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(gempyModelApi.middleware),
+    getDefaultMiddleware().concat(middlewares),
 });
 
+// Export Store-Types
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<

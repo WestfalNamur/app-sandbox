@@ -32,7 +32,7 @@ const SurfacePointRecord = Record({
   formation: String,
 });
 
-// Create an immutable data type from runtype Record.
+// Create an immutable data type from subtype Record.
 export type SurfacePoint = Immutable<Static<typeof SurfacePointRecord>>;
 
 export const SurfacePointRunType = Union(Array(SurfacePointRecord), Undefined);
