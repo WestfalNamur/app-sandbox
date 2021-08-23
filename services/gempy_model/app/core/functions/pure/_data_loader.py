@@ -21,7 +21,6 @@ def from_csv_surface_points(path: str) -> pd.DataFrame:
         ValidationError: When loaded surface point does not have the right shape.
 
     """
-    # dframe = pd.DataFrame(columns=SurfacePoint.schema()["properties"].keys())
     csv_data: pd.DataFrame = pd.read_csv(path)
     lst = []
     for _, row in csv_data.iterrows():
@@ -41,7 +40,10 @@ def from_csv_surface_points(path: str) -> pd.DataFrame:
         )
         lst.append(point.dict())
 
-    LOGGER.log(level=logging.WARN, msg="TODO: Add pandera")
+    LOGGER.log(
+        level=logging.WARN,
+        msg="TODO: Setup ModelState, 1st Meta, 2nd Populate including checks if feasible.",
+    )
 
     dframe: pd.DataFrame = pd.DataFrame(data=lst)
 
