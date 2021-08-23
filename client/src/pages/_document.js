@@ -3,6 +3,9 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 //import theme from "../src/theme";
 
+// We use this script to properly render our Material-Ui components. Otherwise
+// we will have problems that our styles get fragmented.
+
 export default class MyDocument extends Document {
   render() {
     return (

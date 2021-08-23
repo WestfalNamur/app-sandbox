@@ -37,6 +37,6 @@ export type SurfacePoint = Immutable<Static<typeof SurfacePointRecord>>;
 
 export const SurfacePointRunType = Union(Array(SurfacePointRecord), Undefined);
 
-export interface GempyDataState {
+export interface GempySliceState {
   surfacePoints: SurfacePoint[];
 }

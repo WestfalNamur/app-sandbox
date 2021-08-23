@@ -14,7 +14,6 @@ import PhotoIcon from "@material-ui/icons/Photo";
 import MapIcon from "@material-ui/icons/Map";
 
 // MainView embedded in Clipped Drawer
-//import Content from "./Content";
 import SurfPointTable from "./dataView/SurfacePointsTable";
 
 const drawerWidth = 240;
@@ -84,10 +83,10 @@ export default function ClippedDrawer() {
           </List>
           <Divider />
           <List>
-            {["Photos", "Map"].map((text, index) => (
+            {["Photos", "Map", "3D"].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <PhotoIcon /> : <MapIcon />}
+                  <MapIcon />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
