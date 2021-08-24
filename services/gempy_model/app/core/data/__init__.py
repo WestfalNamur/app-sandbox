@@ -40,7 +40,15 @@ geo_model_extent = GeoModelExtent(
 
 series = pd.DataFrame(columns=Series.schema()["properties"].keys())
 
-surfaces = pd.DataFrame(columns=Surfaces.schema()["properties"].keys())
+surf1 = Surfaces(name="surf1", series="series1", order_surface=0).dict()
+# surfaces = pd.DataFrame(columns=Surfaces.schema()["properties"].keys(), data=surf1)
+surfaces = pd.DataFrame(surf1, index=[0])
+print(" ")
+print(surfaces["name"].str.contains("surf1"))
+print(surfaces)
+print(surfaces)
+print(" ")
+
 
 # =============================================================================
 # Geological input data
