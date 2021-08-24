@@ -2,13 +2,42 @@
 
 Final CS50 project.
 
+This is a client-server style application to interact with a geological model made with [GemPy](https://github.com/cgre-aachen/gempy).
+
+
 # Geo-Model service
 
-A GemPy based geo-model instance as a function of data and interpolator. <br/>
-Next: Setup SurfacePoints-Table, combine it with the Pydantic BaseModel and pandera validator.
+We setup our model as a function of data and the GemPy interpolator. This is a bit diffrent from GemPy where a model is an object. Each model has its own server instance. Here we only have one model but later we could solve this via proxies. i.e. www.MYDOMAINNAME.com/model-x/ would guide you to the model-x instance. 
+
+Concepts: 
+ 
+- model = interpolator(model_data)  // The data are the model; Seperate data and functionality;
+- model_data = [meta_data, gempy_data]
+- endpoints to manipulate model_data and request a new realization.
+- archictuce: program as a sequence of (pure?)-functions. 
+- caching: functions are cached and checked by thier input hash if they can be reused.
+
+
+Tools:
+
+- FastAPI stack: WebApi functinality
+- GemPy & SciPy stack: The model
+- PostgreSQL: persistant storage
+
 
 # Client
 
-React/Redux-Toolkit <br>
-**Redux** manages the data layer of our application. The state is stored in the redux **store**. **RTK-Query** (included in Redux-Toolkit) takes care to keep our store and service in sync. It does this by re-querying every second or when we do dispatch an action that changes the Gempy-Model related data. **React** renders the view layer which is made up of mainly **Material-Ui** components. The overall architecture follows a few simple principles. React-Components render Component and / or HTML. Components do not pass data between each other but always over the store. This design is inspired by Elm. **Store** -> **View** -> **Update**. For code quality we use Typescript in strict mode, Runtypes, and ESLint.
+UI for our geomodel.
 
+Concepts:
+
+- Arcitecture: State => View => Actions (inspired by Elm) & Next.js conventions.
+- State:
+  - Source of truth on server? SWR : Redux
+- View:
+  - React
+  - Material-Ui
+- Quality:
+  - Typescript
+  - Runtypes on outside communication
+  - Jest for Tests
