@@ -1,14 +1,17 @@
 import type { NextPage } from "next";
+import Paper from "@material-ui/core/Paper";
 
 import styles from "../styles/Home.module.css";
-import Counter from "../features/counter/Counter";
+
+import SurfacePointTable from "../features/tables/SurfacePointTable";
 
 const IndexPage: NextPage = () => {
   return (
     <div className={styles.container}>
-      <h1>Hello, World!</h1>
-      <Counter />
-      <Counter />
+      <h1>Some Content</h1>
+      <Paper>
+        <SurfacePointTable />
+      </Paper>
     </div>
   );
 };
