@@ -27,7 +27,7 @@ const reducer = combineReducers({
 // as I know.If for some reason that doesn't work, do several concat calls in a
 // row.– markerikson
 const middleware = (getDefaultMiddleware: any) =>
-  getDefaultMiddleware().concat(logger);
+  getDefaultMiddleware().concat(logger, gempyModelTabularData.middleware);
 
 // Create store and the makeStore function. This functions is used during
 // testing.
