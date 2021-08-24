@@ -1,10 +1,24 @@
-import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheets } from "@material-ui/core/styles";
-//import theme from "../src/theme";
-
+// Source : https://github.com/mui-org/material-ui/blob/next/examples/nextjs-with-typescript/pages/_document.tsx
+//
 // We use this script to properly render our Material-Ui components. Otherwise
 // we will have problems that our styles get fragmented.
+//
+// https://stackoverflow.com/questions/51040669/next-js-use-of-app-js-and-document-js
+// Pages in Next.js skip the definition of the surrounding document's markup.
+// For example, you never include < html >, <body>, etc. To override that
+// default behavior, you must create a file at./ pages / _document.js, where
+// you can extend the Document class.
+// Note: _document.js is only rendered on the server side and not on the client
+// side.so event handlers like onClick is not going to work.
+
+import * as React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheets } from "@material-ui/core/styles";
+// import theme from "../styles/theme"; // Maybe add a global theme later on;
+
+//import createEmotionServer from "@emotion/server/create-instance";
+//import theme from "../src/theme";
+//import createEmotionCache from "../src/createEmotionCache";
 
 export default class MyDocument extends Document {
   render() {
@@ -12,7 +26,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* 
-          PWA primary color 
+          PWA primary color  // Maybe add a global theme later on;
           <meta name="theme-color" content={theme.palette.primary.main} />
           */}
           <link

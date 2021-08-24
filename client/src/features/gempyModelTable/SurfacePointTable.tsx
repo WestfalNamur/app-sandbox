@@ -1,6 +1,8 @@
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import { DataGrid } from "@material-ui/data-grid";
-import { useGetSurfacePoints } from "./gempyDataApi";
+import { SurfacePoint } from "../../types";
+
+import { useGetSurfacePointsQuery } from "./gempyTabularDataApi";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -12,13 +14,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const columns = [
-  {
-    field: "id",
-    headerName: "ID",
-    type: "number",
-    width: 100,
-    editable: false,
-  },
   {
     field: "Formation",
     headerName: "Formation",
@@ -34,8 +29,22 @@ const columns = [
     editable: true,
   },
   {
+    field: "XUc",
+    headerName: "XUc",
+    type: "number",
+    flex: 1,
+    editable: true,
+  },
+  {
     field: "Y",
     headerName: "Y",
+    type: "number",
+    flex: 1,
+    editable: true,
+  },
+  {
+    field: "YUc",
+    headerName: "YUc",
     type: "number",
     flex: 1,
     editable: true,
@@ -47,27 +56,54 @@ const columns = [
     flex: 1,
     editable: true,
   },
+  {
+    field: "ZUc",
+    headerName: "ZUc",
+    type: "number",
+    flex: 1,
+    editable: true,
+  },
 ];
+
+interface RowPoint {
+  id: string;
+  X: number;
+  XUc: number;
+  Y: number;
+  YUc: number;
+  Z: number;
+  ZUc: number;
+  Formation: string;
+}
+
+function genRowData(surfacePoints: SurfacePoint[]): RowPoint[] {
+  return surfacePoints.map((sp) => ({
+    id: sp.idx,
+    X: sp.x,
+    XUc: sp.x_uc,
+    Y: sp.y,
+    YUc: sp.y_uc,
+    Z: sp.z,
+    ZUc: sp.z_uc,
+    Formation: sp.formation,
+  }));
+}
 
 export default function SurfPointTable() {
   const classes = useStyles();
-  const { data, error } = useGetSurfacePoints();
+  const { data, error } = useGetSurfacePointsQuery();
+
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-  const rows = data.map((p) => ({
-    id: p.idx,
-    X: p.x,
-    Y: p.y,
-    Z: p.z,
-    Formation: p.formation,
-  }));
+
+  const rows = genRowData(data);
+
   return (
     <DataGrid
       className={classes.dataGrid}
       rows={rows}
       columns={columns}
       pageSize={10}
-      checkboxSelection
       disableSelectionOnClick
     />
   );

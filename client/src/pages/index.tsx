@@ -1,11 +1,17 @@
 import type { NextPage } from "next";
+import Paper from "@material-ui/core/Paper";
 
-import ClippedDrawer from "../features/ClippedDrawer";
+import styles from "../styles/Home.module.css";
+
+import SurfacePointTable from "../features/gempyModelTable/SurfacePointTable";
 
 const IndexPage: NextPage = () => {
   return (
-    <div>
-      <ClippedDrawer />
+    <div className={styles.container}>
+      <h1>Some Content</h1>
+      <Paper>
+        <SurfacePointTable />
+      </Paper>
     </div>
   );
 };
