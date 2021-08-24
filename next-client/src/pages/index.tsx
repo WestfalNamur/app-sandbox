@@ -3,7 +3,7 @@ import Paper from "@material-ui/core/Paper";
 
 import styles from "../styles/Home.module.css";
 
-import SurfacePointTable from "../features/tables/SurfacePointTable";
+import SurfacePointTable from "../features/gempyModelTable/SurfacePointTable";
 
 const IndexPage: NextPage = () => {
   return (

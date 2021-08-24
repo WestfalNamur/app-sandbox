@@ -12,10 +12,14 @@ import {
 import { logger } from "redux-logger";
 
 import counterReducer from "../features/counter/counterSlice";
+import { gempyModelTabularData } from "../features/gempyModelTable/gempyTabularDataApi";
 
 // Combine our slice reducer
 const reducer = combineReducers({
+  // Source of truth is client
   counter: counterReducer,
+  // Source of truth is web-api
+  [gempyModelTabularData.reducerPath]: gempyModelTabularData.reducer,
 });
 
 // Middleware
