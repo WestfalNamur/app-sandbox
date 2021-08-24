@@ -2,11 +2,13 @@ import { logger } from "redux-logger";
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
 import { gempyModelApi } from "../features/dataView/gempyDataApi";
+import { counterSlice } from "../features/counter/counterSlice";
 
 // Combine reducer
 // Api slices do not store data in a classical sense but are cached queries.
 const reducer = {
   [gempyModelApi.reducerPath]: gempyModelApi.reducer,
+  counter: counterSlice,
 };
 
 // Collect middleware
