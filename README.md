@@ -23,6 +23,7 @@ Tools:
 - FastAPI stack: WebApi functinality
 - GemPy & SciPy stack: The model
 - PostgreSQL: persistant storage
+- Quality tool run in order: MyPy, black, isort, wemake-python-styleguide, bandit, Pydantic, pandera? (runtime), lgtm.com (github action.
 
 
 # Client
