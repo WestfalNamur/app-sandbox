@@ -20,6 +20,9 @@ echo "Running Python from: $py_interpreter"
 # flake8
 python3 -m flake8 app/
 
+# Pyling
+# TODO!
+
 # run black
 python3 -m black app/
 

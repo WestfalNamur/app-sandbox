@@ -18,7 +18,10 @@ py_interpreter=$(which python)
 echo "Running Python from: $py_interpreter"
 
 # flake8
-python3 -m flake8 app/
+# python3 -m flake8 app/
+
+# Pylint
+# TODO!
 
 # run black
 python3 -m black app/

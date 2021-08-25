@@ -9,14 +9,11 @@ import sys
 
 import pandas as pd  # type: ignore
 
-# import pandera as pa
-# from pandera.typing import Index, DataFrame, Series
-
 from app.core.functions.pure._data_loader import from_csv_surface_points
 
 from app.types.base_model import (
     GeoModelExtent,
-    Series,
+    GpSeries,
     Surfaces,
     SurfacePoint,
     Orientation,
@@ -41,19 +38,15 @@ geo_model_extent = GeoModelExtent(
 # Topology data
 # =============================================================================
 
-series = pd.DataFrame(columns=Series.schema()["properties"].keys())
+series = pd.DataFrame(columns=GpSeries.schema()["properties"].keys())
 
+# Gen surfaces-df
+surfaces = pd.DataFrame(columns=Surfaces.schema()["properties"].keys())
+# Gen new-surface-df to concate
 surf1 = Surfaces(name="surf1", series="series1", order_surface=0).dict()
-# surfaces = pd.DataFrame(
-#   columns=Surfaces.schema()["properties"].keys(),
-#   data=surf1
-# )
-surfaces = pd.DataFrame(surf1, index=[0])
-print(" ")
-print(surfaces["name"].str.contains("surf1"))
+surf1_df = pd.DataFrame(surf1, index=[0])
+surfaces = pd.concat([surfaces, surf1_df])
 print(surfaces)
-print(surfaces)
-print(" ")
 
 
 # =============================================================================

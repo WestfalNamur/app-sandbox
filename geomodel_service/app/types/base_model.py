@@ -44,7 +44,7 @@ class GeoModelExtent(BaseModel):
 # =============================================================================
 
 
-class Series(BaseModel):
+class GpSeries(BaseModel):
     name: str
     isfault: bool
     order_series: int

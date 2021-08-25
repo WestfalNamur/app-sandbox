@@ -1,8 +1,27 @@
 import pandas as pd  # type: ignore
+import pandera as pa
+from pandera.typing import DataFrame
 
-from app.types.base_model import SurfacePoint, Orientation
+
+from app.types.base_model import SurfacePoint, Orientation, GpSeries
+from app.types.schema_model import GpSeriesPa
 
 from app.core.data.model_state import model_state
+
+# -----------------------------------------------------------------------------
+# Series
+# -----------------------------------------------------------------------------
+
+
+# TODO: Check if it works
+@pa.check_types  # type: ignore
+def series_add_serie(
+    df: DataFrame[GpSeriesPa], new_serie: GpSeries
+) -> DataFrame[GpSeriesPa]:
+    new_serie_df = pd.DataFrame(new_serie.dict(), index=[0])
+    df = pd.concat([df, new_serie_df])
+    return df
+
 
 # -----------------------------------------------------------------------------
 # Surface-Points
