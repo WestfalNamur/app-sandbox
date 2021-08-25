@@ -2,7 +2,7 @@ from typing import List
 from random import uniform
 import uuid
 
-from app.types import SurfacePoint, DistUcEnum
+from app.types.base_model import SurfacePoint, DistUcEnum
 
 
 def _generate_random_surface_points() -> List[SurfacePoint]:

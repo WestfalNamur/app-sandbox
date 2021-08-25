@@ -3,7 +3,7 @@ import logging
 
 import pandas as pd  # type: ignore
 
-from app.types import SurfacePoint
+from app.types.base_model import SurfacePoint
 
 LOGGER = logging.getLogger("DATA")
 

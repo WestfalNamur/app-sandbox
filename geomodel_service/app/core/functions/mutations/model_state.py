@@ -1,8 +1,8 @@
 import pandas as pd  # type: ignore
 
-from app.types import SurfacePoint, Orientation
+from app.types.base_model import SurfacePoint, Orientation
 
-from app.core.data import model_state
+from app.core.data.model_state import model_state
 
 # -----------------------------------------------------------------------------
 # Surface-Points

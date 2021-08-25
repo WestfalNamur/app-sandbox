@@ -1,4 +1,4 @@
-from app.types import SurfacePoint
+from app.types.base_model import SurfacePoint
 
 # -----------------------------------------------------------------------------
 # Surface-Points

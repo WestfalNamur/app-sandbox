@@ -9,9 +9,12 @@ import sys
 
 import pandas as pd  # type: ignore
 
+# import pandera as pa
+# from pandera.typing import Index, DataFrame, Series
+
 from app.core.functions.pure._data_loader import from_csv_surface_points
 
-from app.types import (
+from app.types.base_model import (
     GeoModelExtent,
     Series,
     Surfaces,

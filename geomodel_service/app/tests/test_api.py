@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 from pydantic import parse_obj_as
 
 from app.api import app
-from app.types import SurfacePoint
+from app.types.base_model import SurfacePoint
 
 client = TestClient(app)
 

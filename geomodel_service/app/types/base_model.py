@@ -6,17 +6,16 @@ from pydantic import BaseModel
 import pandas as pd  # type: ignore
 
 
-""" Gempy-Model-Types
+""" Pydantic BaseModel types
 
-Based on: https://www.gempy.org/tutorials
-
--  Surface_points
--  Orientations
--  Grid
--  Surfaces
--  Series
--  Additional data
--  Faults
+GemPy based types (https://www.gempy.org)
+    -  Surface_points
+    -  Orientations
+    -  Grid
+    -  Surfaces
+    -  Series
+    -  Additional data
+    -  Faults
 """
 
 

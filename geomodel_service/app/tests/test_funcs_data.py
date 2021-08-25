@@ -1,7 +1,7 @@
 """Tests mutation functions that directly operate on data."""
 
-import app.core.functions.mutations as fmute
-from app.types import SurfacePoint
+import app.core.functions.mutations.model_state as fmute
+from app.types.base_model import SurfacePoint
 
 
 # -----------------------------------------------------------------------------
