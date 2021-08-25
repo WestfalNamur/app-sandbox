@@ -18,7 +18,8 @@ def from_csv_surface_points(path: str) -> pd.DataFrame:
         DFrame: New created and populated SurfacePointsDFrame
 
     Raises:
-        ValidationError: When loaded surface point does not have the right shape.
+        ValidationError: When loaded surface point does not have the right
+        shape.
 
     """
     csv_data: pd.DataFrame = pd.read_csv(path)
@@ -42,7 +43,10 @@ def from_csv_surface_points(path: str) -> pd.DataFrame:
 
     LOGGER.log(
         level=logging.WARN,
-        msg="TODO: Setup ModelState, 1st Meta, 2nd Populate including checks if feasible.",
+        msg=(
+            "TODO: Setup ModelState, 1st Meta, 2nd Populate"
+            "including checks if feasible."
+        ),
     )
 
     dframe: pd.DataFrame = pd.DataFrame(data=lst)

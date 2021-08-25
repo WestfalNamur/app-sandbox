@@ -3,3 +3,4 @@ Pandera
 Pandas
 NumPy
 Pytest
+bandit

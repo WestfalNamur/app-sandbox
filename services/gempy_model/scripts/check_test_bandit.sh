@@ -34,3 +34,11 @@ fi
 
 # run tests
 python3 -m pytest --cov app/
+
+# run mypy  # exit if ther is something to imporve
+python3 -m bandit -r app/
+if [ $? -eq 1 ]
+then
+    echo "Bandit found something."
+    exit 1
+fi
