@@ -1,5 +1,7 @@
-import uuid
+"""Load data."""
+
 import logging
+import uuid
 
 import pandas as pd  # type: ignore
 
@@ -14,13 +16,11 @@ def from_csv_surface_points(path: str) -> pd.DataFrame:
     Args:
         path: Path to surface points .csv file.
 
-    Return:
-        DFrame: New created and populated SurfacePointsDFrame
-
     Raises:
-        ValidationError: When loaded surface point does not have the right
-        shape.
+        - When loaded surface point does not have the right shape.
 
+    Returns:
+        DFrame: New created and populated SurfacePointsDFrame
     """
     csv_data: pd.DataFrame = pd.read_csv(path)
     lst = []

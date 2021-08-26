@@ -2,13 +2,13 @@
 
 import "../styles/globals.css";
 
-import { StrictMode } from "react";
+import React, { ReactElement, StrictMode } from "react";
 import { Provider } from "react-redux";
 import type { AppProps } from "next/app";
 
 import store from "../app/store";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
     <StrictMode>
       <Provider store={store}>
@@ -16,6 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Provider>
     </StrictMode>
   );
-}
+};
 
 export default MyApp;

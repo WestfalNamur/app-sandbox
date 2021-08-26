@@ -4,3 +4,4 @@ Pandas
 NumPy
 Pytest
 bandit
+isort

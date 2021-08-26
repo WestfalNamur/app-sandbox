@@ -1,23 +1,16 @@
-""" Geo-model-server data. 
-
-Data instances of our live geo-model.
-
-* We use .schema()["properties"].keys() on our BaseModel classes to get their
-* field names as colum names in our DataFrames.
-"""
+"""Geo-model-server data."""
 import sys
 
 import pandas as pd  # type: ignore
 
-from app.core.functions.pure._data_loader import from_csv_surface_points
-
+from app.core.functions.pure.data_loader import from_csv_surface_points
 from app.types.base_model import (
     GeoModelExtent,
     GpSeries,
-    Surfaces,
-    SurfacePoint,
-    Orientation,
     ModelState,
+    Orientation,
+    SurfacePoint,
+    Surfaces,
 )
 
 # =============================================================================
@@ -46,7 +39,6 @@ surfaces = pd.DataFrame(columns=Surfaces.schema()["properties"].keys())
 surf1 = Surfaces(name="surf1", series="series1", order_surface=0).dict()
 surf1_df = pd.DataFrame(surf1, index=[0])
 surfaces = pd.concat([surfaces, surf1_df])
-print(surfaces)
 
 
 # =============================================================================
@@ -71,6 +63,8 @@ model_state = ModelState(
 )
 
 # TODO: Remove, only during early development!
-model_state["surface_points"] = from_csv_surface_points(
-    path=sys.path[0] + "/app/core/data/DUMMY_DATA/_surface_points_simple.csv"
-)
+file_path = sys.path[0]
+csv_path = "/app/core/data/DUMMY_DATA/_surface_points_simple.csv"
+path = "{0}{1}".format(file_path, csv_path)
+
+model_state["surface_points"] = from_csv_surface_points(path=path)

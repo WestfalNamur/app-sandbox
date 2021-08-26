@@ -1,8 +1,7 @@
 """Application entry point to start the test API."""
 import os
 
-from app.api import run
-
+from app.api.main import run
 
 HOST = os.environ.get("HOST", "localhost")
 PORT = int(os.environ.get("PORT", 8000))

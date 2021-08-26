@@ -1,10 +1,8 @@
 from enum import Enum
-
-
 from typing import TypedDict
-from pydantic import BaseModel
-import pandas as pd  # type: ignore
 
+import pandas as pd  # type: ignore
+from pydantic import BaseModel
 
 """ Pydantic BaseModel types
 

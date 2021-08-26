@@ -31,12 +31,12 @@ const middleware = (getDefaultMiddleware: any) =>
 
 // Create store and the makeStore function. This functions is used during
 // testing.
-export function makeStore() {
+export const makeStore = (): any => {
   return configureStore({
     reducer,
     middleware,
   });
-}
+};
 const store = makeStore();
 
 // Types of our store, dispatches, thunks

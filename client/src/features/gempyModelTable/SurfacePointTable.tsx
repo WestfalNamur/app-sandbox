@@ -1,10 +1,11 @@
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import { DataGrid } from "@material-ui/data-grid";
+import { ReactElement } from "react";
 import { SurfacePoint } from "../../types";
 
 import { useGetSurfacePointsQuery } from "./gempyTabularDataApi";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((_theme: Theme) =>
   createStyles({
     dataGrid: {
       width: "100%",
@@ -89,7 +90,7 @@ function genRowData(surfacePoints: SurfacePoint[]): RowPoint[] {
   }));
 }
 
-export default function SurfPointTable() {
+const SurfPointTable = (): ReactElement => {
   const classes = useStyles();
   const { data, error } = useGetSurfacePointsQuery();
 
@@ -107,4 +108,6 @@ export default function SurfPointTable() {
       disableSelectionOnClick
     />
   );
-}
+};
+
+export default SurfPointTable;
