@@ -5,21 +5,20 @@
 
 import {
   configureStore,
-  combineReducers,
   ThunkAction,
   Action,
+  combineReducers,
 } from "@reduxjs/toolkit";
 import { logger } from "redux-logger";
 
-import counterReducer from "../features/counter/counterSlice";
-import { gempyModelTabularData } from "../features/gempyModelTable/gempyTabularDataApi";
+import { gempyDataApi } from "../features/gempyData/gempyDataApi";
 
 // Combine our slice reducer
 const reducer = combineReducers({
   // Source of truth is client
-  counter: counterReducer,
-  // Source of truth is web-api
-  [gempyModelTabularData.reducerPath]: gempyModelTabularData.reducer,
+  // i.e. counter: counterReducer,
+  // Source of truth are web-apis
+  [gempyDataApi.reducerPath]: gempyDataApi.reducer,
 });
 
 // Middleware
@@ -27,27 +26,18 @@ const reducer = combineReducers({
 // as I know.If for some reason that doesn't work, do several concat calls in a
 // row.– markerikson
 const middleware = (getDefaultMiddleware: any) =>
-  getDefaultMiddleware().concat(logger, gempyModelTabularData.middleware);
+  getDefaultMiddleware().concat(logger, gempyDataApi.middleware);
 
-// Create store and the makeStore function. This functions is used during
-// testing.
-export const makeStore = (): any => {
-  return configureStore({
-    reducer,
-    middleware,
-  });
-};
-const store = makeStore();
+export const store = configureStore({
+  reducer,
+  middleware,
+});
 
-// Types of our store, dispatches, thunks
-export type AppState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
-  AppState,
+  RootState,
   unknown,
   Action<string>
 >;
-
-// Export the store object
-export default store;
