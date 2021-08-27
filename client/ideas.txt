@@ -1,3 +1,0 @@
-1. Comment hooks
-2. Get and comment _document.js
-3. Setup Material Ui

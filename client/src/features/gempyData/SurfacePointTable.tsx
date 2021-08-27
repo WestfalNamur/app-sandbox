@@ -1,9 +1,9 @@
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import { DataGrid } from "@material-ui/data-grid";
 import { ReactElement } from "react";
-import { SurfacePoint } from "../../types";
+import { SurfacePoint } from "../../../types";
 
-import { useGetSurfacePointsQuery } from "./gempyTabularDataApi";
+import { useGetSurfacePointsQuery } from "./gempyDataApi";
 
 const useStyles = makeStyles((_theme: Theme) =>
   createStyles({
