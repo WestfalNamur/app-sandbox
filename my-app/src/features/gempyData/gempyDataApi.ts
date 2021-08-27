@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { SurfacePoint } from "../../../types";
 
 export const gempyDataApi = createApi({
-  reducerPath: "gempyModelTabularData",
+  reducerPath: "gempyDataApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/" }),
   endpoints: (builder) => ({
     getSurfacePoints: builder.query<SurfacePoint[], void>({
