@@ -1,7 +1,20 @@
-FastAPI
-Pandera
-Pandas
+# Upgrade pip before you run the installs!
+
+# Web
+FastAPI[all]
+
+# Scipy-Stack
 NumPy
-Pytest
+Pandas
+Pandera
+
+# Testing
+mypy
+pytest
+pytest-cov
+
+# Quality
 bandit
 isort
+black
+flake8
