@@ -34,7 +34,7 @@ Concepts:
 
 - Arcitecture: State => View => Actions (inspired by Elm) & Next.js conventions.
 - State:
-  - Source of truth on server? SWR : Redux
+  - Source of truth on server? RTK : Redux
 - View:
   - React
   - Material-Ui
@@ -42,3 +42,13 @@ Concepts:
   - Typescript
   - Runtypes on outside communication
   - Jest for Tests
+
+
+# TODOs
+
+- GemPy data endpoints && UI-Tables
+- Docker
+- PostgreSQL
+- Cypress
+- Github actions
+- react-three-fiber
