@@ -2,24 +2,19 @@
 """Mutations that apply on the model-state."""
 
 import pandas as pd  # type: ignore
-import pandera as pa
-from pandera.typing import DataFrame
 
 from app.core.data.model_state import model_state
 from app.types.base_model import GpSeries, Orientation, SurfacePoint
-from app.types.schema_model import GpSeriesPa
 
 # -----------------------------------------------------------------------------
 # Series
 # -----------------------------------------------------------------------------
 
 
-# TODO: Check if it works
-@pa.check_types  # type: ignore
 def series_add_serie(
-    df: DataFrame[GpSeriesPa],
+    df: pd.DataFrame,
     new_serie: GpSeries,
-) -> DataFrame[GpSeriesPa]:
+) -> pd.DataFrame:
     """Concate series and new serie.
 
     Args:

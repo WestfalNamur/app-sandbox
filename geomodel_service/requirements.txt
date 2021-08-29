@@ -8,6 +8,9 @@ NumPy
 Pandas
 Pandera
 
+# geo-model
+gempy
+
 # Testing
 mypy
 pytest
