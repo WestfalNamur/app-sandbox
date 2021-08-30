@@ -37,6 +37,12 @@ class GeoModelExtent(BaseModel):
     z_max: int
 
 
+class GeoModelResolution(BaseModel):
+    xaxis: int
+    yaxis: int
+    zaxis: int
+
+
 # =============================================================================
 # Topology data
 # =============================================================================
@@ -97,6 +103,7 @@ class Orientation(BaseModel):
 # Using TypedDict here to integrate Pandas
 class ModelState(TypedDict):
     geo_model_extent: GeoModelExtent
+    resolution: GeoModelResolution
     series: pd.DataFrame
     surfaces: pd.DataFrame
     surface_points: pd.DataFrame

@@ -1,10 +1,16 @@
 # flake8: noqa
-"""Mutations that apply on the model-state."""
+"""Mutations that apply on the model-state.
+
+<model_state[key]>_do_something(model_state, payload):
+    1. validate payload
+    2. Action
+    3. Return success or failure
+"""
 
 import pandas as pd  # type: ignore
 
 from app.core.data.model_state import model_state
-from app.types.base_model import GpSeries, Orientation, SurfacePoint
+from app.types.base_model import GpSeries, Orientation, SurfacePoint, ModelState
 
 # -----------------------------------------------------------------------------
 # Series
@@ -34,7 +40,9 @@ def series_add_serie(
 # -----------------------------------------------------------------------------
 
 
-def surface_point_validate(surface_point: SurfacePoint) -> bool:
+def surface_point_validate(
+    model_state: ModelState, surface_point: SurfacePoint
+) -> bool:
     """Validate surface-point in context of the model.
 
     Args:
@@ -64,11 +72,13 @@ def surface_point_validate(surface_point: SurfacePoint) -> bool:
     return True
 
 
-def add_surface_point(surface_point: SurfacePoint) -> None:
-    # Reference model_state
-    # Validate
-    # Add
-    pass
+def add_surface_point(model_state: ModelState, surface_point: SurfacePoint) -> None:
+    # Is valid? Surface exists, within extent?
+    surface_point_validate(model_state=model_state, surface_point=surface_point)
+    # New surface point to df
+    df = pd.DataFrame(surface_point, index=[0])
+    # Add to model_state by mutating model_state
+    model_state["surface_points"] = pd.concat([model_state["surface_points"], df])
 
 
 def mutate_surface_point(surface_point: SurfacePoint) -> None:

@@ -1,5 +1,6 @@
 """Geo-model-server data."""
 import sys
+import copy
 
 import pandas as pd  # type: ignore
 
@@ -55,6 +56,14 @@ orientations = pd.DataFrame(columns=Orientation.schema()["properties"].keys())
 
 
 model_state = ModelState(
+    geo_model_extent=geo_model_extent,
+    series=series,
+    surfaces=surfaces,
+    surface_points=surface_points,
+    orientations=orientations,
+)
+
+model_state_test = ModelState(
     geo_model_extent=geo_model_extent,
     series=series,
     surfaces=surfaces,

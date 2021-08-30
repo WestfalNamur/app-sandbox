@@ -1,0 +1,7 @@
+,surface,series,order_surfaces,isBasement,isFault,isActive,hasData,color,vertices,edges,sfai,id
+0,Shale,Default series,1,False,False,True,True,#015482,,,,1
+1,Sandstone_1,Default series,2,False,False,True,True,#9f0052,,,,2
+2,Siltstone,Default series,3,False,False,True,True,#ffbe00,,,,3
+3,Sandstone_2,Default series,4,False,False,True,True,#728f02,,,,4
+4,Main_Fault,Default series,5,False,False,True,True,#443988,,,,5
+5,basement,Basement,1,True,False,True,False,#ff3f20,,,,6
