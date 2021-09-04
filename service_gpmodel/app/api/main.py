@@ -1,11 +1,14 @@
 """FastAPI main."""
 
 import logging
-from typing import Dict
+from typing import Dict, List
 
 import uvicorn  # type: ignore
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from app.models.base_models import ModelState, SurfacePoint
+from app.core.examples import surface_points_simple
 
 # logger
 LOGGER = logging.getLogger("API")
@@ -14,9 +17,18 @@ LOGGER = logging.getLogger("API")
 # Configure app
 # ==============================================================================
 
-# api instance
+# app instance
 app = FastAPI()
 
+# model instance represented as state  # Empty at first.
+gpmodel_state: ModelState = ModelState(name="", surface_points=[])
+
+# Check env variable: test? load example data.
+gpmodel_state.name = "Example - simple."
+gpmodel_state.surface_points = surface_points_simple
+
+
+# Allowed origin
 origins = [
     "http://localhost",
     "http://localhost:8080",
@@ -24,6 +36,7 @@ origins = [
     "http://localhost:3000",
 ]
 
+# Middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -45,6 +58,16 @@ async def ping() -> Dict[str, str]:
         msg: A ping.
     """
     return {"msg": "Ping!"}
+
+
+@app.get("/data/surface_points")
+async def get_surface_points() -> List[SurfacePoint]:
+    """Check connection.
+
+    Returns:
+        msg: A ping.
+    """
+    return gpmodel_state.surface_points
 
 
 # ==============================================================================
